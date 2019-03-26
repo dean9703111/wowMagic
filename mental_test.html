@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <div id='view'></div>
+    <!-- <div id="blackLine" style="position:absolute;top:0;left:0;width:100%;height:100vh;z-index:-5"> -->
+    </div>
+    <style>
+    </style>
+</head>
+
+<body style="overflow-y: hidden">
+
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/motionstack-v2.0.3.min.js"></script>
+<script src="js/shake.js"></script>
+<script>
+    $(document).ready(function () {
+        // var MotionStack = require('motionstack');
+        // var magnetometer = new MotionStack.Magnetometer();
+        // magnetometer.start(function (e) {
+        //     console.log(e.x, e.y, e.z);
+        //     $('#view').val(e.x+'  '+ e.y+'  '+ e.z)
+        // });
+        // console.log('Magnetometer:'+MotionStack.Magnetometer.isSupported())
+        let sensor = new Magnetometer();
+        sensor.start();
+
+        sensor.onreading = () => {
+            console.log("Magnetic field along the X-axis " + sensor.x);
+            console.log("Magnetic field along the Y-axis " + sensor.y);
+            console.log("Magnetic field along the Z-axis " + sensor.z);
+            alert('fffff')
+        };
+
+        sensor.onerror = event => console.log(event.error.name, event.error.message);
+    });
+</script>
+
+</html>
