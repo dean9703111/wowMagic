@@ -35,7 +35,9 @@
             console.log("Magnetic field along the X-axis " + sensor.x);
             console.log("Magnetic field along the Y-axis " + sensor.y);
             console.log("Magnetic field along the Z-axis " + sensor.z);
-            alert('fffff')
+            if ((Math.abs(sensor.x) + Math.abs(sensor.y) + Math.abs(sensor.z)) > 150) {
+                alert('fffff')
+            }
         };
 
         sensor.onerror = event => console.log(event.error.name, event.error.message);
