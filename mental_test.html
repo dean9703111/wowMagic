@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -17,18 +17,11 @@
 
 </body>
 <script src="js/jquery.js"></script>
+<script src="js/motionstack-v2.0.3.min.js"></script>
 <script>
     $(document).ready(function () {
-        // var MotionStack = require('motionstack');
-        // var magnetometer = new MotionStack.Magnetometer();
-        // magnetometer.start(function (e) {
-        //     console.log(e.x, e.y, e.z);
-        //     $('#view').val(e.x+'  '+ e.y+'  '+ e.z)
-        // });
-        // console.log('Magnetometer:'+MotionStack.Magnetometer.isSupported())
         let sensor = new Magnetometer();
         sensor.start();
-
         sensor.onreading = () => {
             console.log("Magnetic field along the X-axis " + sensor.x);
             console.log("Magnetic field along the Y-axis " + sensor.y);
@@ -37,8 +30,8 @@
                 alert((Math.abs(sensor.x) + Math.abs(sensor.y) + Math.abs(sensor.z)))
             }
         };
-
         sensor.onerror = event => console.log(event.error.name, event.error.message);
     });
-})
+</script>
+
 </html>
