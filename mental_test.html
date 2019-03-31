@@ -18,6 +18,7 @@
 </body>
 <script src="js/jquery.js"></script>
 <script>
+    $(document).ready(function () {
         // var MotionStack = require('motionstack');
         // var magnetometer = new MotionStack.Magnetometer();
         // magnetometer.start(function (e) {
@@ -39,5 +40,5 @@
 
         sensor.onerror = event => console.log(event.error.name, event.error.message);
     });
-
+})
 </html>
